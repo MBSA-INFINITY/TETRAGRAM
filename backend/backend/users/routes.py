@@ -19,7 +19,7 @@ def register():
             'password': request.json['password']
         }
         user = requests.post(Config.register_endpoint, data=json.dumps(payload))
-        users_ref.add(json.dumps(payload))
+        users_ref.add(payload)
         return user.json(), 200
     except Exception as e:
         return f"An Error Occurred: {e}"
